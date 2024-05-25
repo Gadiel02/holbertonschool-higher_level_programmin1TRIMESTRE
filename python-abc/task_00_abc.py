@@ -1,17 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+"""Abstract Animal Class and its Subclasses"""
 from abc import ABC, abstractmethod
-"""coment"""
+
 
 class Animal(ABC):
+    """Start of the class"""
 
     @abstractmethod
     def sound(self):
         pass
 
 class Dog(Animal):
+    """Dog subclass"""
     def sound(self):
-        return "bark"
-    
+        return "Bark"
+
 class Cat(Animal):
+    """Cat subclass"""
     def sound(self):
         return "Meow"

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-
 from abc import ABC, abstractmethod
+"""coment"""
 
 class Animal(ABC):
-    
+
     @abstractmethod
     def sound(self):
         pass

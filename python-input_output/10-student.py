@@ -1,13 +1,24 @@
 #!/usr/bin/python3
-Student = __import__('10-student').Student
+"""class Student"""
 
-student_1 = Student("John", "Doe", 23)
-student_2 = Student("Bob", "Dylan", 27)
 
-j_student_1 = student_1.to_json()
-j_student_2 = student_2.to_json(['first_name', 'age'])
-j_student_3 = student_2.to_json(['middle_name', 'age'])
+class Student:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-print(j_student_1)
-print(j_student_2)
-print(j_student_3)
+    def to_json(self, attrs=None):
+        dic1 = {}
+        dic2 = {}
+        if attrs is None:
+            return self.__dict__
+        totalargs = len(attrs)
+        if hasattr(self, '__dict__'):
+            dic1 = self.__dict__
+            for key, value in dic1.items():
+                for i in range(totalargs):
+                    if key == attrs[i]:
+                        dic2[key] = value
+            return dic2
+        return dic1

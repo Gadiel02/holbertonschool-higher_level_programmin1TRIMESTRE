@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-import sys
-import json
+"""class Student"""
 
-def save_to_json_file(my_obj, filename):
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(my_obj, f)
 
-def load_from_json_file(filename):
-    with open(filename, encoding='utf-8') as f:
-        return json.load(f)
+class Student:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-if __name__ == "__main__":
-    try:
-        with open("add_item.json", 'r', encoding='utf-8') as f:
-            items = json.load(f)
-    except FileNotFoundError:
-        items = []
-    items.extend(sys.argv[1:])
-    save_to_json_file(items, "add_item.json")
+    def to_json(self):
+        dic1 = {}
+        if hasattr(self, '__dict__'):
+            return self.__dict__
+        return dic1
